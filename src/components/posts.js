@@ -1,8 +1,29 @@
+let clicks = 0;
+function FavoritePic(props) {
+  clicks++
+  console.log(props.target.getAttribute("name"))
+  const iconHeartOutline = document.querySelector(".l-k-s ion-icon[name='heart-outline']")
+  const iconHeart = document.querySelector(".l-k-s ion-icon[name='heart']")
+  console.log(iconHeartOutline.getAttribute("name"))
+  console.log(props.target.getAttribute("name") === iconHeartOutline.getAttribute("name"))
+  if (clicks === 2) {
+    iconHeartOutline.classList.toggle("none")
+    iconHeart.classList.toggle("none")
+    clicks = 0
+  }
+  if (props.target === iconHeartOutline) {
+    iconHeartOutline.classList.toggle("none")
+    iconHeart.classList.toggle("none")
+    clicks = 0
+  }
+}
+
 function Post(props) {
   const postIcons = [
-    "heart-outline",
-    "chatbubble-outline",
-    "paper-plane-outline",
+    { name: "heart", class: "none heart" },
+    { name: "heart-outline", class: "", click: { FavoritePic } },
+    { name: "chatbubble-outline", class: "" },
+    { name: "paper-plane-outline", class: "" }
   ];
   const comments = [
     {
@@ -24,13 +45,13 @@ function Post(props) {
         <ion-icon name="ellipsis-horizontal"></ion-icon>
       </div>
       <div class="post-line"></div>
-      <div class="post-picture">
+      <div class="post-picture" onClick={FavoritePic}>
         <img src={props.postPicture} alt={props.altPicture} />
       </div>
       <div class="post-icons">
         <div class="l-k-s">
           {postIcons.map((icon) => (
-            <ion-icon name={icon}></ion-icon>
+            <ion-icon name={icon.name} class={icon.class} onClick={FavoritePic}></ion-icon>
           ))}
         </div>
         <div class="save">
@@ -86,7 +107,7 @@ export default function Posts() {
         altPicture="gato-telefone"
         firstLikePic="../img/respondeai.png"
         firstLikePicAlt="respondeai"
-        likedBy="respondeiAi"
+        likedBy="respondeAi"
         likes="101.523"
         commentsNum="4,133"
         firstUserComment="twan"

@@ -14,7 +14,7 @@ export default function NavBar() {
             </a>
           </div>
           <div class="search-field desktop-field">
-            <input type="text" placeholder="Pesquisar" disabled />
+            <input type="text" placeholder="Pesquisar"  />
           </div>
           <div class="insta-icons desktop-field">
             <ion-icon class="desktop-nav-icon" name="paper-plane-outline"></ion-icon>

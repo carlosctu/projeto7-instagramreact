@@ -3,7 +3,7 @@ const icons = [
   "search-outline",
   "add-circle-outline",
   "heart-outline",
-  "person-outline",
+  "person-outline"
 ];
 
 export default function FooterMobile() {

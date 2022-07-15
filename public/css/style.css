@@ -627,6 +627,12 @@ body {
 .post-likes strong:hover {
   cursor: pointer;
 }
+.none{
+  display: none;
+}
+.heart{
+  color: red;
+}
 
 /*Layout Sem Sidebar*/
 @media (max-width: 935px) {
