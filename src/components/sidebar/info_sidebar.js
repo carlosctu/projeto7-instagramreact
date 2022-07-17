@@ -22,9 +22,8 @@ function UserAccount(props) {
         <p>{props.username}</p>
       </div>
     </div>
-  )
+  );
 }
-
 
 export default function SideBar() {
   return (
@@ -33,13 +32,16 @@ export default function SideBar() {
         username="Catana"
         userNickName="catanacomics"
         userProfileImg="../img/catancomics.png"
-        userProfileImgAlt="catacomics" />
+        userProfileImgAlt="catacomics"
+      />
       <div class="line-side-bar"></div>
       <SugestionFollows />
       <div class="info-side-bar">
         <p>
-          {infoSideBar.map((text) => (
-            <a href="https://www.instagram.com/">{text}</a>
+          {infoSideBar.map((text, index) => (
+            <a key={index} href="https://www.instagram.com/">
+              {text}
+            </a>
           ))}
         </p>
       </div>

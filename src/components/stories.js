@@ -29,7 +29,7 @@ function StoryFrame(props) {
           src="img/stories-background.png"
           alt="stories-background"
         />
-        <img class="story-image" src={props.img} alt={props.alt} />
+        <img class="story-image"   src={props.img} alt={props.alt} />
       </div>
       <div class="story-name">
         <p>{props.name}</p>
@@ -42,8 +42,8 @@ export default function Stories() {
   return (
     <div class="stories">
       <div class="main-stories">
-        {storyInfo.map((story) => (
-          <StoryFrame img={story.img} alt={story.alt} name={story.name} />
+        {storyInfo.map((story,index) => (
+          <StoryFrame key={index} img={story.img} alt={story.alt} name={story.name} />
         ))}
       </div>
       <ion-icon

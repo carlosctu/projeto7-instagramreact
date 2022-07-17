@@ -9,8 +9,8 @@ const icons = [
 export default function FooterMobile() {
   return (
     <div class="footer-mobile">
-      {icons.map((icon) => (
-        <ion-icon name={icon}></ion-icon>
+      {icons.map((icon,index) => (
+        <ion-icon key={index} name={icon}></ion-icon>
       ))}
     </div>
   );

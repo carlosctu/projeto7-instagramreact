@@ -1,29 +1,9 @@
-let clicks = 0;
-function FavoritePic(props) {
-  clicks++
-  console.log(props.target.getAttribute("name"))
-  const iconHeartOutline = document.querySelector(".l-k-s ion-icon[name='heart-outline']")
-  const iconHeart = document.querySelector(".l-k-s ion-icon[name='heart']")
-  console.log(iconHeartOutline.getAttribute("name"))
-  console.log(props.target.getAttribute("name") === iconHeartOutline.getAttribute("name"))
-  if (clicks === 2) {
-    iconHeartOutline.classList.toggle("none")
-    iconHeart.classList.toggle("none")
-    clicks = 0
-  }
-  if (props.target === iconHeartOutline) {
-    iconHeartOutline.classList.toggle("none")
-    iconHeart.classList.toggle("none")
-    clicks = 0
-  }
-}
-
+import React from "react";
 function Post(props) {
+  let click = 0;
   const postIcons = [
-    { name: "heart", class: "none heart" },
-    { name: "heart-outline", class: "", click: { FavoritePic } },
-    { name: "chatbubble-outline", class: "" },
-    { name: "paper-plane-outline", class: "" }
+    { name: "chatbubble-outline" },
+    { name: "paper-plane-outline" },
   ];
   const comments = [
     {
@@ -35,6 +15,16 @@ function Post(props) {
       comment: props.SecondComment,
     },
   ];
+  const [heartAnimation, setHeartAnimation] = React.useState("post-heart-none");
+  let [isLiked, setLiked] = React.useState(false);
+  const toogle = () => {
+    if (!isLiked) {
+      setLiked((prevState) => !prevState);
+    }
+  };
+  function resetHeartAnimation() {
+    setHeartAnimation("post-heart-none");
+  }
   return (
     <div class="post">
       <div class="post-account">
@@ -45,13 +35,34 @@ function Post(props) {
         <ion-icon name="ellipsis-horizontal"></ion-icon>
       </div>
       <div class="post-line"></div>
-      <div class="post-picture" onClick={FavoritePic}>
-        <img src={props.postPicture} alt={props.altPicture} />
+      <div class="post-picture">
+        <img
+          src={props.postPicture}
+          alt={props.altPicture}
+          onClick={() => {
+            click++;
+            if (click === 2) {
+              toogle();
+              setHeartAnimation("post-heart");
+              setTimeout(resetHeartAnimation, 1200);
+              click = 0;
+            }
+          }}
+        />
+        <ion-icon name="heart" class={heartAnimation}></ion-icon>
       </div>
       <div class="post-icons">
         <div class="l-k-s">
-          {postIcons.map((icon) => (
-            <ion-icon name={icon.name} class={icon.class} onClick={FavoritePic}></ion-icon>
+          <ion-icon
+            name={isLiked ? "heart" : "heart-outline"}
+            class={isLiked ? "heart" : ""}
+            onClick={() => {
+              setLiked((prevState) => !prevState);
+              setHeartAnimation("post-heart-none");
+            }}
+          ></ion-icon>
+          {postIcons.map((icon, index) => (
+            <ion-icon key={index} name={icon.name}></ion-icon>
           ))}
         </div>
         <div class="save">
@@ -74,8 +85,8 @@ function Post(props) {
         </div>
         <div class="post-comments">
           <p>Ver todos os {props.commentsNum} comentários</p>
-          {comments.map((comment) => (
-            <div class="user-comment">
+          {comments.map((comment,index) => (
+            <div key={index} class="user-comment">
               <span class="underlined">
                 <strong>{comment.user}</strong>
               </span>
@@ -116,7 +127,6 @@ export default function Posts() {
         SecondComment="What an elegance!"
         postTime="HÁ 15 MINUTOS"
       />
-      ,
       <Post
         profilePic="../img/barked.png"
         profilePicAlt="barked"
@@ -135,12 +145,11 @@ export default function Posts() {
         SecondComment="OMG! Cute!!"
         postTime="HÁ 4 HORAS"
       />
-      ,
       <Post
         profilePic="../img/9gag.png"
         profilePicAlt="9gag"
         profilePicName="9gag"
-        postPicture="../img/9gag.png"
+        postPicture="../img/9gag_image.png"
         postCaption="Enough pupparazzi"
         altPicture="golden-puppie"
         firstLikePic="../img/respondeai.png"

@@ -1,10 +1,35 @@
 const userSuggest = [
-  { name: "bad.vibes.memes", nameStatus: "Segue você", img: "../img/bad-vibes.png", alt: "bad-vibes" },
-  { name: "chibidart", nameStatus: "Segue você", img: "../img/chibidart.png", alt: "chibidart" },
-  { name: "razoesparaacreditar", nameStatus: "Novo no Instagram", img: "../img/razoesparaacreditar.png", alt: "razoesparaacreditar" },
-  { name: "adorableanimals", nameStatus: "Segue você", img: "../img/adorableanimals.png", alt: "adorableanimals" },
-  { name: "smallcutecats", nameStatus: "Segue você", img: "../img/smallcutecats.png", alt: "smallcutecats" }
-]
+  {
+    name: "bad.vibes.memes",
+    nameStatus: "Segue você",
+    img: "../img/bad-vibes.png",
+    alt: "bad-vibes",
+  },
+  {
+    name: "chibidart",
+    nameStatus: "Segue você",
+    img: "../img/chibidart.png",
+    alt: "chibidart",
+  },
+  {
+    name: "razoesparaacreditar",
+    nameStatus: "Novo no Instagram",
+    img: "../img/razoesparaacreditar.png",
+    alt: "razoesparaacreditar",
+  },
+  {
+    name: "adorableanimals",
+    nameStatus: "Segue você",
+    img: "../img/adorableanimals.png",
+    alt: "adorableanimals",
+  },
+  {
+    name: "smallcutecats",
+    nameStatus: "Segue você",
+    img: "../img/smallcutecats.png",
+    alt: "smallcutecats",
+  },
+];
 function UserFollowSuggest(props) {
   return (
     <div class="suggestions-follows">
@@ -17,7 +42,7 @@ function UserFollowSuggest(props) {
         <span class="hover">Seguir</span>
       </div>
     </div>
-  )
+  );
 }
 
 export default function SugestionFollows() {
@@ -28,14 +53,16 @@ export default function SugestionFollows() {
         <span>Ver tudo</span>
       </div>
       <div class="follows">
-        {userSuggest.map(user => (
+        {userSuggest.map((user, index) => (
           <UserFollowSuggest
+            key={index}
             name={user.name}
             nameStatus={user.nameStatus}
             img={user.img}
-            alt={user.img} />
+            alt={user.img}
+          />
         ))}
       </div>
     </div>
-  )
+  );
 }
