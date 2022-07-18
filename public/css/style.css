@@ -96,7 +96,7 @@ body {
   display: flex;
   justify-content: center;
   overflow: hidden;
-  height: 2246px;
+  height: 100%;
   width: 100%;
   /* width: 935px; */
 }
@@ -564,7 +564,7 @@ body {
   padding: 0 10px;
   justify-content: space-between;
   align-items: center;
-  height: 51px;
+  height: 60px;
   width: 100%;
   font-size: 15px;
   background-color: #fafafa;

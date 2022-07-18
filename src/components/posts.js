@@ -15,6 +15,7 @@ function Post(props) {
       comment: props.SecondComment,
     },
   ];
+
   const [heartAnimation, setHeartAnimation] = React.useState("post-heart-none");
   let [isLiked, setLiked] = React.useState(false);
   const toogle = () => {
@@ -85,7 +86,7 @@ function Post(props) {
         </div>
         <div class="post-comments">
           <p>Ver todos os {props.commentsNum} comentários</p>
-          {comments.map((comment,index) => (
+          {comments.map((comment, index) => (
             <div key={index} class="user-comment">
               <span class="underlined">
                 <strong>{comment.user}</strong>
@@ -107,62 +108,83 @@ function Post(props) {
   );
 }
 export default function Posts() {
+  const post = [
+    {
+      profilePic: "../img/meowed-2.png",
+      profilePicAlt: "meowed-2",
+      profilePicName: "meowed",
+      postPicture: "../img/meowed-3.png",
+      postCaption: "❄️ ❄️",
+      altPicture: "gato-telefone",
+      firstLikePic: "../img/respondeai.png",
+      firstLikePicAlt: "respondeai",
+      likedBy: "respondeAi",
+      likes: "101.523",
+      commentsNum: "4,133",
+      firstUserComment: "twan",
+      firstComment: "What a beauty!😍",
+      SecondUserComment: "candidev",
+      SecondComment: "What an elegance!",
+      postTime: "HÁ 15 MINUTOS",
+    },
+    {
+      profilePic: "../img/barked.png",
+      profilePicAlt: "barked",
+      profilePicName: "barked",
+      postPicture: "../img/golden-puppie.png",
+      postCaption: "Enough pupparazzi",
+      altPicture: "golden-puppie",
+      firstLikePic: "../img/respondeai.png",
+      firstLikePicAlt: "respondeai",
+      likedBy: "respondeiAi",
+      likes: "791.149",
+      commentsNum: "324,133",
+      firstUserComment: "tillietheshep",
+      firstComment: "Does lil man have a license to be so cute?!",
+      SecondUserComment: "oleadoggies",
+      SecondComment: "OMG! Cute!!",
+      postTime: "HÁ 4 HORAS",
+    },
+    {
+      profilePic: "../img/9gag.png",
+      profilePicAlt: "9gag",
+      profilePicName: "9gag",
+      postPicture: "../img/9gag_image.png",
+      postCaption: "Best starter pack!",
+      altPicture: "9gag_pic",
+      firstLikePic: "../img/9gag.png",
+      firstLikePicAlt: "9gag",
+      likedBy: "9gag",
+      likes: "121.825",
+      commentsNum: "321,371",
+      firstUserComment: "amandac",
+      firstComment: "So related...",
+      SecondUserComment: "chipalita",
+      SecondComment: "Just what i need!",
+      postTime: "HÁ 12 HORAS",
+    },
+  ];
   return (
     <div class="posts">
-      <Post
-        profilePic="../img/meowed-2.png"
-        profilePicAlt="meowed-2"
-        profilePicName="meowed"
-        postPicture="../img/meowed-3.png"
-        postCaption="❄️ ❄️"
-        altPicture="gato-telefone"
-        firstLikePic="../img/respondeai.png"
-        firstLikePicAlt="respondeai"
-        likedBy="respondeAi"
-        likes="101.523"
-        commentsNum="4,133"
-        firstUserComment="twan"
-        firstComment="What a beauty!😍"
-        SecondUserComment="candidev"
-        SecondComment="What an elegance!"
-        postTime="HÁ 15 MINUTOS"
-      />
-      <Post
-        profilePic="../img/barked.png"
-        profilePicAlt="barked"
-        profilePicName="barked"
-        postPicture="../img/golden-puppie.png"
-        postCaption="Enough pupparazzi"
-        altPicture="golden-puppie"
-        firstLikePic="../img/respondeai.png"
-        firstLikePicAlt="respondeai"
-        likedBy="respondeiAi"
-        likes="791.149"
-        commentsNum="324,133"
-        firstUserComment="tillietheshep"
-        firstComment="Does lil man have a license to be so cute?!"
-        SecondUserComment="oleadoggies"
-        SecondComment="OMG! Cute!!"
-        postTime="HÁ 4 HORAS"
-      />
-      <Post
-        profilePic="../img/9gag.png"
-        profilePicAlt="9gag"
-        profilePicName="9gag"
-        postPicture="../img/9gag_image.png"
-        postCaption="Enough pupparazzi"
-        altPicture="golden-puppie"
-        firstLikePic="../img/respondeai.png"
-        firstLikePicAlt="respondeai"
-        likedBy="respondeiAi"
-        likes="791.149"
-        commentsNum="324,133"
-        firstUserComment="tillietheshep"
-        firstComment="Does lil man have a license to be so cute?!"
-        SecondUserComment="oleadoggies"
-        SecondComment="OMG! Cute!!"
-        postTime="HÁ 4 HORAS"
-      />
+      {post.map((post) => (
+        <Post
+          profilePic={post.profilePic}
+          profilePicAlt={post.profilePicAlt}
+          profilePicName={post.profilePicName}
+          postPicture={post.postPicture}
+          postCaption={post.postCaption}
+          altPicture={post.altPicture}
+          firstLikePic={post.firstLikePic}
+          firstLikePicAlt={post.firstLikePicAlt}
+          likedBy={post.likedBy}
+          likes={post.likes}
+          commentsNum={post.commentsNum}
+          firstUserComment={post.firstUserComment}
+          firstComment={post.firstComment}
+          SecondUserComment={post.SecondUserComment}
+          SecondComment={post.SecondComment}
+        />
+        ))}
     </div>
   );
 }
