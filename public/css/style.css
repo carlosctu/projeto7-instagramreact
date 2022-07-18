@@ -787,7 +787,7 @@ body {
     padding-right: 21px;
   } */
   .main {
-    margin-top: 54px;
+    margin: 54px 0;
   }
 
   .nav-mobile {

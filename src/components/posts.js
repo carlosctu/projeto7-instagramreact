@@ -166,8 +166,9 @@ export default function Posts() {
   ];
   return (
     <div class="posts">
-      {post.map((post) => (
+      {post.map((post, index) => (
         <Post
+          key={index}
           profilePic={post.profilePic}
           profilePicAlt={post.profilePicAlt}
           profilePicName={post.profilePicName}
@@ -184,7 +185,7 @@ export default function Posts() {
           SecondUserComment={post.SecondUserComment}
           SecondComment={post.SecondComment}
         />
-        ))}
+      ))}
     </div>
   );
 }
