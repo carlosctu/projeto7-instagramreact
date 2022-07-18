@@ -1,3 +1,4 @@
+import React, { Component }  from 'react';
 import FooterMobile from "./footer_mobile";
 import Body from "./body";
 import NavBar from "./navbar";
