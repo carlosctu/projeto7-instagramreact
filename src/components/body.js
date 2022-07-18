@@ -1,3 +1,4 @@
+import React, { Component }  from 'react';
 import Posts from "./posts";
 import SideBar from "./sidebar/info_sidebar";
 import Stories from "./stories";
