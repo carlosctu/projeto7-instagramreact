@@ -1,3 +1,4 @@
+import React, { Component }  from 'react';
 const storyInfo = [
   { img: "../img/9gag.png", alt: "9gag", name: "9gag" },
   { img: "../img/meowed.png", alt: "meowed", name: "meowed" },
